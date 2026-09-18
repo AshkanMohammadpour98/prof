@@ -14,7 +14,7 @@ const contactInfo = {
 
   whatsapp: "989149775687",
   website: "https://example.com",
-  mapUrl: "https://maps.google.com/?q=", // TODO: replace with real office location
+  mapUrl: "https://nshn.ir/ba_bWQP2PANfp5", // موقعیت دفتر (نشان)
   social: "https://instagram.com/example", // TODO: replace with real social profile / link-in-bio
 };
 
@@ -52,3 +52,42 @@ document.getElementById("btn-save").addEventListener("click", () => {
   downloadVCard(contactInfo);
   showToast("فایل مخاطب دانلود شد");
 });
+
+/* ==========================================================================
+   Fit-to-screen: scales the whole card down (never up) so every section is
+   visible in one view with no scrolling, on any phone height.
+   ========================================================================== */
+(function fitToScreen(){
+  const stage = document.getElementById("stage");
+  const card = document.getElementById("card");
+  if (!stage || !card) return;
+
+  const MIN_SCALE = 0.62;
+
+  function apply(){
+    // transforms don't affect layout size, so natural size is always readable
+    const availH = stage.clientHeight;
+    const availW = stage.clientWidth;
+    const naturalH = card.scrollHeight;
+    const naturalW = card.scrollWidth;
+    if (!naturalH || !naturalW) return;
+
+    let scale = Math.min(availH / naturalH, availW / naturalW, 1);
+    scale = Math.max(scale, MIN_SCALE);
+    card.style.transform = `scale(${scale})`;
+
+    // if even the minimum scale can't fit, allow the stage to scroll as a
+    // last-resort safety net instead of clipping content
+    stage.style.overflowY = (naturalH * MIN_SCALE > availH) ? "auto" : "hidden";
+  }
+
+  window.addEventListener("resize", apply);
+  window.addEventListener("orientationchange", apply);
+  window.addEventListener("load", apply);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(apply);
+
+  const ro = new ResizeObserver(apply);
+  ro.observe(card);
+
+  apply();
+})();
