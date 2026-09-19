@@ -21,12 +21,13 @@
 <main class="page" id="card">
 
   <!-- Hero: brand text over the highway photo -->
-  <section class="hero reveal" style="--d:0s">
+  <section class="hero">
     <div class="hero__media" aria-hidden="true">
       <img src="assets/hero-truck.jpg" alt="" loading="eager">
     </div>
+    <canvas class="hero__dust" id="dust" aria-hidden="true"></canvas>
     <div class="hero__content">
-      <img class="hero__logo" src="assets/logo.png" alt="بنیامین ترابر پارسیان">
+      <span class="hero__logo-wrap"><img class="hero__logo" src="assets/logo.png" alt="بنیامین ترابر پارسیان"><img class="hero__logo hero__logo--shine" src="assets/logo.png" alt="" aria-hidden="true"></span>
       <p class="hero__eyebrow" id="txt-tagline">شرکت حمل و نقل بزرگ مقیاس</p>
       <h1 class="hero__name" id="txt-companyfa">بنیامین ترابر پارسیان</h1>
       <p class="hero__sub" dir="ltr">
@@ -107,8 +108,11 @@
     </div>
 
     <button class="save-btn" type="button" id="btn-save">
-      <span class="label"><span class="fa">ذخیره مخاطب</span><span class="en" dir="ltr">Save Contact</span></span>
-      <svg viewBox="0 0 24 24" fill="none"><circle cx="9.5" cy="8" r="3.6" stroke="currentColor" stroke-width="1.6"/><path d="M3.2 20c.7-3.4 3.2-5.2 6.3-5.2 1.3 0 2.4.3 3.4.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M18 13.5v6M15 16.5h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      <span class="label"><span class="fa" data-idle="ذخیره مخاطب" data-done="مخاطب ذخیره شد">ذخیره مخاطب</span><span class="en" dir="ltr" data-idle="Save Contact" data-done="Contact Saved">Save Contact</span></span>
+      <span class="save-btn__ico" aria-hidden="true">
+        <svg class="ico-add" viewBox="0 0 24 24" fill="none"><circle cx="9.5" cy="8" r="3.6" stroke="currentColor" stroke-width="1.6"/><path d="M3.2 20c.7-3.4 3.2-5.2 6.3-5.2 1.3 0 2.4.3 3.4.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M18 13.5v6M15 16.5h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <svg class="ico-ok" viewBox="0 0 24 24" fill="none"><path d="m5 12.8 4.4 4.4L19 7.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
     </button>
   </section>
 
