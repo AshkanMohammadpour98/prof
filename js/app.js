@@ -15,7 +15,7 @@ const contactInfo = {
   whatsapp: "989149775687",
   website: "https://example.com",
   mapUrl: "https://nshn.ir/ba_bWQP2PANfp5", // موقعیت دفتر (نشان)
-  social: "https://instagram.com/example", // TODO: replace with real social profile / link-in-bio
+  social: "https://instagram.com/rahimi_benyamin_tarabar", // TODO: replace with real social profile / link-in-bio
 };
 
 function buildVCard(d){
